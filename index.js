@@ -1,4 +1,5 @@
 // MAIN BACKEND FILE
+require('dotenv').config()
 const BookModel = require("./database/books");
 const AuthorModel = require("./database/authors");
 const PublicationModel = require("./database/publications");
@@ -10,7 +11,7 @@ app.use(express.json());
 //Import the mongoose module
 var mongoose = require('mongoose');
 //Set up default mongoose connection
-var mongoDB = 'mongodb+srv://nikhil_agarwal:p5nfHZEoRnTA2VGb@cluster0.arwlh.mongodb.net/book-company?retryWrites=true&w=majority';
+var mongoDB = process.env.MONGODB_URI;
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true}).then(()=>console.log("CONNECTION ESTABLISHED"));
 
 
